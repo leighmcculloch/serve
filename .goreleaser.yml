@@ -19,7 +19,7 @@ archives:
 
 brews:
   -
-    github:
+    tap:
       owner: leighmcculloch
       name: serve
     folder: Formula
