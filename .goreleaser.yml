@@ -1,0 +1,29 @@
+builds:
+  - binary: serve
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+
+archives:
+  -
+    wrap_in_directory: true
+    format: tar.gz
+    format_overrides:
+      - goos: windows
+        format: zip
+    files:
+      - LICENSE
+
+brews:
+  -
+    github:
+      owner: leighmcculloch
+      name: serve
+    folder: Formula
+    homepage: "https://4d63.com/serve"
+    description: Simple HTTP file server.
+    install: |
+      bin.install "serve"
