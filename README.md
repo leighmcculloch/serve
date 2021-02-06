@@ -5,10 +5,18 @@ A simple HTTP file server that serves the current directory on the port defined 
 ## Install
 
 ```
+brew install 4d63/serve/serve
+```
+
+or
+
+```
 go get 4d63.com/serve
 ```
 
 ## Usage
+
+Serve has no options or configurations. Run it in a directory you want to serve.
 
 ```
 serve
