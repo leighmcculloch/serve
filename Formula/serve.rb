@@ -5,16 +5,16 @@
 class Serve < Formula
   desc "Simple HTTP file server."
   homepage "https://4d63.com/serve"
-  version "1.1.0"
+  version "1.1.1"
   bottle :unneeded
 
   if OS.mac?
-    url "https://github.com/leighmcculloch/serve/releases/download/v1.1.0/serve_1.1.0_darwin_amd64.tar.gz"
-    sha256 "e15afac5f3677b0103fe9129929bec91b5157e1248551ab3223bb036221f81b5"
+    url "https://github.com/leighmcculloch/serve/releases/download/v1.1.1/serve_1.1.1_darwin_amd64.tar.gz"
+    sha256 "f16a680a8b76acbab8eb9d03e123310d1b998f5cb86bb2b475e8ad0854691cf7"
   end
   if OS.linux? && Hardware::CPU.intel?
-    url "https://github.com/leighmcculloch/serve/releases/download/v1.1.0/serve_1.1.0_linux_amd64.tar.gz"
-    sha256 "1c27aa591f86cd52126244f2f5cb409a3518fc5f7b3d12191ac02ac5622fe856"
+    url "https://github.com/leighmcculloch/serve/releases/download/v1.1.1/serve_1.1.1_linux_amd64.tar.gz"
+    sha256 "2c9af82eee7bc54059903ce252f0bc063ea8e571602b25982f9c50d1b496f046"
   end
 
   def install
