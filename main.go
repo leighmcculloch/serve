@@ -2,21 +2,36 @@ package main
 
 import (
 	"log"
+	"net"
 	"net/http"
 	"os"
 	"time"
 )
 
 func main() {
+	// listen on designated port or random port
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8000"
 	}
+	ln, err := net.Listen("tcp", ":"+port)
+	if err != nil {
+		ln, err = net.Listen("tcp", ":0")
+	}
+	if err != nil {
+		log.Printf("%s", err)
+	}
+	log.Printf("Listening on %s", ln.Addr())
+
+	// serve local files
 	fs := http.FileServer(http.Dir("."))
-	address := ":" + port
-	log.Printf("Listening on %s", address)
-	err := http.ListenAndServe(address, loggingMiddleware(fs))
-	log.Printf("%s", err.Error())
+
+	// serve on the listening port
+	srv := &http.Server{Handler: loggingMiddleware(fs)}
+	err = srv.Serve(ln)
+	if err != nil {
+		log.Printf("%s", err)
+	}
 }
 
 func loggingMiddleware(next http.Handler) http.Handler {
